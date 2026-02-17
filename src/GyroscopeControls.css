@@ -1,0 +1,195 @@
+/* Gyroscope Controls */
+.gyroscope-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Permission Overlay (iOS) */
+.permission-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 0, 21, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    z-index: 200;
+}
+
+.permission-button {
+    padding: 20px 40px;
+    background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 
+        0 0 20px var(--neon-cyan),
+        0 0 40px var(--neon-cyan);
+    transition: all 0.3s ease;
+}
+
+.permission-button:active {
+    transform: scale(0.95);
+    box-shadow: 
+        0 0 30px var(--neon-cyan),
+        0 0 60px var(--neon-cyan);
+}
+
+/* Gyroscope Indicator */
+.gyro-indicator {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.gyro-status {
+    padding: 10px 20px;
+    background: rgba(0, 245, 255, 0.1);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 20px;
+    color: var(--neon-cyan);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    box-shadow: 
+        0 0 10px var(--neon-cyan),
+        inset 0 0 10px rgba(0, 245, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.gyro-status.active {
+    background: rgba(0, 245, 255, 0.2);
+    animation: gyroPulse 2s ease-in-out infinite;
+}
+
+@keyframes gyroPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 10px var(--neon-cyan),
+            inset 0 0 10px rgba(0, 245, 255, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 20px var(--neon-cyan),
+            0 0 30px var(--neon-cyan),
+            inset 0 0 20px rgba(0, 245, 255, 0.3);
+    }
+}
+
+.recalibrate-button {
+    padding: 8px 16px;
+    background: rgba(131, 56, 236, 0.2);
+    border: 2px solid var(--neon-purple);
+    border-radius: 15px;
+    color: var(--neon-purple);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-shadow: 0 0 10px var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple);
+    transition: all 0.2s ease;
+}
+
+.recalibrate-button:active {
+    transform: scale(0.95);
+    background: rgba(131, 56, 236, 0.4);
+}
+
+/* Jump Button Container */
+.jump-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto;
+}
+
+.jump-button {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 0, 110, 0.1);
+    border: 3px solid var(--neon-pink);
+    border-radius: 50%;
+    color: var(--neon-pink);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: 
+        0 0 10px var(--neon-pink),
+        inset 0 0 10px rgba(255, 0, 110, 0.2);
+    transition: all 0.2s ease;
+    text-shadow: 
+        0 0 10px var(--neon-pink);
+}
+
+.jump-button:active {
+    background: rgba(255, 0, 110, 0.3);
+    box-shadow: 
+        0 0 20px var(--neon-pink),
+        0 0 40px var(--neon-pink),
+        inset 0 0 20px rgba(255, 0, 110, 0.4);
+    transform: scale(0.95);
+}
+
+/* Instructions */
+.gyro-instructions {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    right: 10%;
+    text-align: center;
+    color: var(--neon-cyan);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.gyro-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--neon-pink);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+    .gyroscope-controls {
+        display: none;
+    }
+}
+
+/* Hide desktop controls on mobile */
+@media (max-width: 768px) {
+    .controls {
+        display: none !important;
+    }
+}
