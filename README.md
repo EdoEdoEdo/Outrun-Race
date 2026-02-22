@@ -8,7 +8,7 @@ A retro-futuristic 3D obstacle course game built with React Three Fiber, featuri
 
 ## 📸 Screenshots
 
-![Outrun Race Desktop](public/loading-bg-desktop.png)
+![Outrun Race Desktop](public/loading-bg-desktop.jpg)
 
 ---
 
